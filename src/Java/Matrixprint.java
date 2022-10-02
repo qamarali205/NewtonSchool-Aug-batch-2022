@@ -1,0 +1,28 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Matrixprint {
+    public static void main (String[] args) {
+                      // Your code here
+    Scanner sc=new Scanner(System.in);
+    int n=sc.nextInt();
+    int mat[][]=new int[n][n];
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            mat[i][j]=sc.nextInt();
+        }
+    }
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            System.out.print(mat[i][j]+" ");
+            
+        }
+        System.out.println();
+    }
+    
+    }
+    
+}
