@@ -4,37 +4,32 @@ import java.util.*; // contains Collections framework
 // don't change the name of this class
 // you can add inner classes if needed
 class Main {
-    public static void main (String[] args) {
-                      // Your code here
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int arr[]=new int[n];
-
-        for(int i=0; i<n; i++){
-            arr[i]=sc.nextInt();
-        }
-        int maxE = -1;
+     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
-        maxE = Math.max(maxE, arr[i]);
+            arr[i] = sc.nextInt();
         }
-
-        int[] freq = new int[maxE + 1];
+        HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < n; i++) {
-        freq[arr[i]]++;
+            if (map.containsKey(arr[i])) {
+                int count = map.get(arr[i]);
+                map.put(arr[i], count + 1);
+            } else {
+                map.put(arr[i], 1);
+            }
         }
 
-        int maxF = -1;
-        for (int i = 0; i <= maxE; i++) {
-        maxF = Math.max(maxF, freq[i]);
-        }
+        ArrayList<Integer> li = new ArrayList<>(map.keySet());
+        Collections.sort(li, (num1, num2) -> {
+            if (map.get(num1) == map.get(num2)) return num2 - num1;
+            else return (map.get(num2) - map.get(num1));
+        });
 
-        while(maxF > 0){
-        for(int i=maxE; i>=0;i--){
-        if(maxF == freq[i]){
+        for (int i : li) {
             System.out.print(i + " ");
         }
-        }
-        maxF--;
-        }
+
     }
 }
