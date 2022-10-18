@@ -11,28 +11,31 @@ class Node {
 */
 
 public static Node deleteMiddleElement(Node head) {
-		// return the head of the modified Linked List
-     int cnt = 0;
-    Node temp = head;
-    while (temp != null) {
-        cnt++;
-        temp = temp.next;
+    // return the head of the modified Linked List
+  int count=0;
+    Node temp=head;
+
+    while(temp!=null){
+        count++;
+        temp=temp.next;
     }
-    if (cnt == 1) {
-        head.val = -1;
+
+    if(count==1){
+        head.val=-1;
         return head;
     }
-    if (cnt == 2) {
-        head.next = null;
-        return head;
+
+    count=count/2;
+
+    int i=1;
+    temp=head;
+
+    while(i!=count){
+        temp=temp.next;
+        i++;
     }
-    temp = head;
-    int I = 1;
-    cnt = cnt / 2;
-    while (I != cnt) {
-        temp = temp.next;
-        I++;
-    }
-    temp.next = temp.next.next;
+
+    temp.next=temp.next.next;
     return head;
-    }
+
+}
