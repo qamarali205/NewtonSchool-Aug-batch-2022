@@ -31,4 +31,4 @@ public static Node deleteElement(Node head,int k) {
          old.next=temp.next;
 
         return head;
-    }Link 
+    }
