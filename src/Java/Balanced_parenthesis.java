@@ -6,7 +6,7 @@ import java.lang.*;
 public class Balanced_parenthesis {
 
 	public Balanced_parenthesis() {
-		// TODO Auto-generated constructor stub
+		//TODO Auto-generated constructor stub
 	}
 	public static void main(String[] args)throws IOException {
 		// TODO Auto-generated method stub
