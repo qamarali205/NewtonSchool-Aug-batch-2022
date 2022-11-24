@@ -7,6 +7,7 @@ import java.util.List;
 
 public class SplitMain {   // Splitwise
 
+   
     public static void main(String[] args) {
         SplitwiseServiceImpl splitwiseService=new SplitwiseServiceImpl();
 
@@ -27,22 +28,54 @@ public class SplitMain {   // Splitwise
         Expense expense1=filterInput(expenseInput1);
         splitwiseService.addExpense(expense1);
         splitwiseService.show();
-        splitwiseService.show("u2");
+
+        String expenseInput4= "EXPENSE u2 800 3 u1 u3 u4 EQUAL";
+        Expense expense4=filterInput(expenseInput4);
+        splitwiseService.addExpense(expense4);
+        splitwiseService.show();
+
+
+        String expenseInput5= "EXPENSE u1 500 2 u3 u4 EQUAL";
+        Expense expense5=filterInput(expenseInput5);
+        splitwiseService.addExpense(expense5);
+        splitwiseService.show();
 
         String expenseInput2= "EXPENSE u1 1250 2 u2 u3 EXACT 400 850";
-
-
+        Expense expense2=filterInput(expenseInput2);
+        splitwiseService.addExpense(expense2);
+        splitwiseService.show();
 
         String expenseInput3= "EXPENSE u4 1200 4 u1 u2 u3 u4 PERCENT 40 20 20 20";
+        Expense expense3=filterInput(expenseInput3);
+        splitwiseService.addExpense(expense3);
+        splitwiseService.show();
+
+        String expenseInput6= "EXPENSE u2 2000 3 u2 u3 u4 PERCENT 40 40 20";
+        Expense expense6=filterInput(expenseInput6);
+        splitwiseService.addExpense(expense6);
+        splitwiseService.show();
+
+        
+//        u1= {u2=650.0,
+//                u3=1350.0,
+//                u4=500.0}
+//
+//        u2= {u1=266.6666666666667,
+//                u3=1066.6666666666667,
+//                u4=666.6666666666667}
+//
+//        u4= {u1=480.0,
+//                u2=240.0,
+//                u3=240.0}
+
+
+        splitwiseService.show("u2");
 
 
     }
 
     public static  Expense filterInput(String input){
         Expense expense=new Expense();
-
-//   byUserId;amount;numberOfUsersInvolved;
-//   userListexpenseType;numbersToPartition
 
         String[] partition=input.split(" ");
         int i=1;
@@ -56,9 +89,6 @@ public class SplitMain {   // Splitwise
 
         expense.setExpenseType(partition[++i]);
 
-// set numbers of partition
-        //  10
-        // 7   8 yo 10
         for(int j=++i;j< partition.length;j++){
             expense.getNumbersToPartition().add(Double.parseDouble(partition[j]));
         }
