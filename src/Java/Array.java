@@ -4,6 +4,7 @@ class Array{
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
         int array[]=new int[n];
+        int temp=10;
 
       // input for user loop
        for(int i=0; i<n; i++){ 
@@ -15,4 +16,4 @@ class Array{
         }
                    
         }
-    }
+    }   
